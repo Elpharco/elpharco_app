@@ -9,6 +9,7 @@
 *.pem
 *.key
 *.pub
+key.tf
 
 # Ignore variables files
 *.auto.tfvars
@@ -18,6 +19,7 @@
 
 # Ignore environment-specific files
 .envrc
+.gitattributes
 
 # Ignore CLI configuration files
 .terraformrc
