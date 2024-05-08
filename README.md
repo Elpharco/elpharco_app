@@ -2,9 +2,9 @@
 Planning, building and implementing an architecture that will host a new web app for Elpharco Ltd.
 
 # Network architecture:
-Create a base environment/network architecture upon which 3-tier application will be deployed consisting of the following below:
+Create a base environment/network architecture upon which 3-tier application will be deployed consisting of the following below;
 
-# A VPC
+# A VPC:
 Frontend:  Two Public Subnets spread across two availability zones within the web layer.
 Middle-tier:  Two Private Subnets spread across two availability zones within the application layer.
 Backend: Two Private Subnets spread across two availability zones within the database tier.
@@ -21,7 +21,7 @@ An Application Load Balancer (ALB) to help route incoming traffic to the proper 
 SG Rules for instances launched by the L-template (allow ssh on port 22 & http on port 80)
 Application Load Balancer SG to allow http traffic on port 80
 
-Tier 2: Application tier (Backend)
+# Tier 2: Application tier (Backend)
 This layer is essentially host to the heart of the Elpharco application. It is where the source code and core operations- send/retrieve data to/from the Web and Database tiers.
 The Application tier structure is very closely similar to the Web Tier but with some minor additions and considerations.
 
@@ -34,7 +34,7 @@ The Build RoadMap:
 	ALB SG Rule (allow inbound http traffic from the web tier ALB SG)
 	Bastion Host SG (allow ssh to bastion hosts from my ip)
 
-Tier 3: Database tier (Data storage & retrieval)
+# Tier 3: Database tier (Data storage & retrieval)
 The application servers must be able to read and write to database in order to perform necessary tasks and deliver proper content/services to the Web Tier and the users.
 
 Provisioning a Relational Database Service (RDS) that uses MySQL.
