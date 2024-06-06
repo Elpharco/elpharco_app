@@ -10,6 +10,7 @@ resource "aws_autoscaling_group" "elpharco-webtier-asg" {
   vpc_zone_identifier = [aws_subnet.elpharco-webtier-public-snet-01.id, aws_subnet.elpharco-webtier-public-snet-02.id]  # public subnet IDs
   target_group_arns = [aws_lb_target_group.elpharco-webtier-target-group-alb.arn]
   health_check_type = "ELB"
+  health_check_grace_period = 300  # Optional but recommended
 
   launch_template {
     id      = aws_launch_template.elpharco-webtier-config.id
@@ -22,6 +23,12 @@ resource "aws_autoscaling_group" "elpharco-webtier-asg" {
  lifecycle { 
      create_before_destroy = true
    }
+
+   tag {
+    key                 = "Name"
+    value               = "webtier-asg"
+    propagate_at_launch = true
+  }
 }
 
 # AWS Autoscaling Policy - Target tracking policy for CPU utilization
@@ -52,6 +59,7 @@ resource "aws_autoscaling_group" "elpharco-apptier-asg" {
   vpc_zone_identifier = [aws_subnet.elpharco-apptier-private-snet-01.id, aws_subnet.elpharco-apptier-private-snet-02.id]  # private subnet IDs
   target_group_arns = [aws_lb_target_group.elpharco-apptier-target-group-alb.arn]
   health_check_type = "ELB"
+  health_check_grace_period = 300  # Optional but recommended
 
   launch_template {
     id      = aws_launch_template.elpharco-apptier-config.id
@@ -64,6 +72,12 @@ resource "aws_autoscaling_group" "elpharco-apptier-asg" {
  lifecycle { 
      create_before_destroy = true
    }
+
+   tag {
+    key                 = "Name"
+    value               = "webtier-asg"
+    propagate_at_launch = true
+  }
 }
 
 # AWS Autoscaling Policy - Target tracking policy for CPU utilization

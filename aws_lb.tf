@@ -116,8 +116,3 @@ resource "aws_autoscaling_attachment" "elpharco-apptier-asg-attachment" {
   lb_target_group_arn    = aws_lb_target_group.elpharco-apptier-target-group-alb.arn
 }
 
-
-
-
-
-
