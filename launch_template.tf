@@ -47,7 +47,7 @@ resource "aws_instance" "bastion-host-instance" {
   #availability_zone = var.Instance1-availability-zone
 
   tags = {
-    Name = "bastion-instance"
+    Name = "bastion_instance"
 
   }
 

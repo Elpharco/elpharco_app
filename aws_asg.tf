@@ -26,7 +26,7 @@ resource "aws_autoscaling_group" "elpharco-webtier-asg" {
 
    tag {
     key                 = "Name"
-    value               = "webtier-asg"
+    value               = "webtier_instance"
     propagate_at_launch = true
   }
 }
@@ -75,7 +75,7 @@ resource "aws_autoscaling_group" "elpharco-apptier-asg" {
 
    tag {
     key                 = "Name"
-    value               = "webtier-asg"
+    value               = "apptier_instance"
     propagate_at_launch = true
   }
 }
