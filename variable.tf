@@ -15,7 +15,7 @@ variable "instance-type" {
 }
 
 variable "key-name" {
-  default = "elpharco-keyPair"
+  default = "elpharco_keyPair"
 }
 
 variable "userdata_file" {
